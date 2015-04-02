@@ -1,7 +1,7 @@
 Package: ggplot2
 Type: Package
 Title: An Implementation of the Grammar of Graphics
-Version: 1.0.1
+Version: 1.0.0.99
 Authors@R: c(
     person("Hadley", "Wickham", role = c("aut", "cre"), email = "h.wickham@gmail.com"),
     person("Winston", "Chang", role = "aut", email = "winston@stdout.org")
@@ -13,7 +13,7 @@ Description: An implementation of the grammar of graphics
     plot step by step from multiple data sources. It also
     implements a sophisticated multidimensional
     conditioning system and a consistent interface to map
-    data to aesthetic attributes. See http://ggplot2.org
+    data to aesthetic attributes. See the ggplot2 website
     for more information, documentation and examples.
 Depends:
     R (>= 2.14),
@@ -104,6 +104,7 @@ Collate:
     'geom-hex.r'
     'geom-hline.r'
     'geom-linerange.r'
+    'geom-net.r'
     'geom-path-.r'
     'geom-path-contour.r'
     'geom-path-density2d.r'
@@ -183,6 +184,7 @@ Collate:
     'stat-ellipse.R'
     'stat-function.r'
     'stat-identity.r'
+    'stat-net.r'
     'stat-qq.r'
     'stat-quantile.r'
     'stat-smooth-methods.r'
