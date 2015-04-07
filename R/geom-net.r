@@ -2,7 +2,7 @@
 #' #Documentation to be added.
 #' 
 
-geom_net <- function (mapping = NULL, data = NULL, vertices = NULL, vlabel = FALSE, directed = FALSE, stat = "net", ...) {
+geom_net <- function (mapping = NULL, data = NULL, vertices = NULL, vlabel = FALSE, directed = FALSE, stat = "net", arrow = NULL, ...) {
 #browser()
 #  print("new net geom")
   vmapping <- mapping[grep("^v", names(mapping))]
@@ -60,18 +60,18 @@ labellayer <- NULL
       vertex.labels <- data.frame(vertices, angle = 0, hjust = 0, vjust = 0, family = "", fontface = 1,
                                  lineheight = 1.2)
       vertex.labels$size <- vertex.labels$size * 2
-#      ggname(.$my_name(), grobTree(
- #       GeomSegment$draw(data=edges,...),
-  #      GeomPoint$draw(data=vertices,...),
-   labellayer <-     GeomText$draw(data=vertex.labels,...)
+      labellayer <- GeomText$draw(data=vertex.labels,...)
   #    ))
     }
   edges$arrow <- NULL
 #browser()
-  if (directed == TRUE){
-    edges$arrow <- arrow(length = unit(.015,"npc"))
-    edges$arrow$length[which(edges$from == edges$to)] <- unit(0,"npc")
-  }
+if (directed == TRUE){
+  if (is.null(arrow)){
+    #default arrow parameters.
+    edges$arrow <- arrow(angle = 15, length = unit(.03,"npc"), type = 'closed')
+  } else {edges$arrow <- arrow}
+  edges$arrow$length[which(edges$from == edges$to)] <- unit(0,"npc")
+}
 #     else{
     ggname(.$my_name(), grobTree(   #tried to add the coordinates we made to the draw statement to no avail. it doesn't even get into the draw function without expand limits
       GeomSegment$draw(data=edges,...), #colour=colour, alpha=alpha, fill=fill, linetype=linetype, size=size, coordinates=coordinates, scales=scales, ...),
