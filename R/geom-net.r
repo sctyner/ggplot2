@@ -1,6 +1,15 @@
 #' Geom for visualizing a network.
-#' #Documentation to be added.
-#' 
+#'
+#' Documentation to be added.
+#' @param mapping all of these parameters need to be explained in more detail
+#' @param data
+#' @param vertices
+#' @param vlabel this is going to go out again
+#' @param directed
+#' @param stat
+#' @param ...
+#' @examples
+#' # put the examples back in here ...
 
 geom_net <- function (mapping = NULL, data = NULL, vertices = NULL, vlabel = FALSE, directed = FALSE, stat = "net", ...) {
 #browser()
