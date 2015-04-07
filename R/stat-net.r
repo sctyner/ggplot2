@@ -1,7 +1,7 @@
 #' 2d density estimation.
 #' #Documentation to be added
-#' 
-#' 
+#'
+#'
 stat_net <- function (mapping = NULL, data = NULL, vertices = NULL,  geom = "net", position = "identity", ...) {
 #  print("new net stat")
 
@@ -30,8 +30,9 @@ StatNet <- proto(Stat, {
 #    browser()
 
     #compute x and y using layout method if x,y are not there. then can assume that x and y are there from now on.
-    require(network)
-    require(sna) #how/where to call network, sna, pkg here?
+    try_require("network")
+    try_require("sna")
+
     stopifnot(is.data.frame(data))
     edges <- data[,c('from_id', 'to_id')]
     #3/17 - the next two lines are the source of the deletion of lone vertices.
