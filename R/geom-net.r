@@ -75,7 +75,7 @@ labellayer <- NULL
   edges$arrow <- NULL
 #browser()
 if (directed == TRUE){
-  if (is.null(arrow)){
+  if (is.null(edges$arrow)){
     #default arrow parameters.
     edges$arrow <- arrow(angle = 15, length = unit(.03,"npc"), type = 'closed')
   } else {edges$arrow <- arrow}
